@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const repoName = 'ultimate-tactics'
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1]
+const githubPagesBase = repositoryName ? `/${repositoryName}/` : '/'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: process.env.GITHUB_ACTIONS ? `/${repoName}/` : '/',
+  base: process.env.GITHUB_ACTIONS ? githubPagesBase : '/',
 })

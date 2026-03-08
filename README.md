@@ -8,7 +8,7 @@ If you add bugs or feature requests to the issues tab on the GitHub I will try t
 
 ## GitHub Pages deployment
 
-This repo is configured to deploy to GitHub Pages automatically from the `main` branch using GitHub Actions.
+This repo is configured to deploy to GitHub Pages automatically using GitHub Actions.
 
 ### One-time GitHub settings
 
@@ -18,5 +18,5 @@ This repo is configured to deploy to GitHub Pages automatically from the `main` 
 ### How it deploys
 
 - The workflow is in `.github/workflows/deploy-pages.yml`.
-- On every push to `main`, it runs `npm ci`, builds with Vite, uploads `dist`, and deploys to Pages.
-- The Vite base path is automatically set to `/ultimate-tactics/` in GitHub Actions so assets load correctly on project Pages.
+- On pushes to `main`/`master`/`work`, it runs `npm ci`, builds with Vite, uploads `dist`, and deploys to Pages.
+- The Vite base path is automatically derived from the GitHub repository name in GitHub Actions so assets load correctly on project Pages (including forks).
